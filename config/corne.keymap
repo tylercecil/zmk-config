@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     combos {
@@ -29,10 +30,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E         &kp R     &kp T          &kp Y        &kp U     &kp I       &kp O    &kp P     &kp BSPC
-&kp LCTRL       &kp A  &kp S  &kp D         &kp F     &kp G          &kp H        &kp J     &kp K       &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V     &kp B          &kp N        &kp M     &kp COMMA   &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                              &kp LEFT_GUI  &kp LALT  &lt 1 SPACE    &lt 2 ENTER  &kp RALT  &kp ESCAPE
+&kp TAB         &kp Q  &kp W  &kp E         &kp R     &kp T          &kp Y        &kp U     &kp I      &kp O    &kp P     &kp BSPC
+&kp LCTRL       &kp A  &kp S  &kp D         &kp F     &kp G          &kp H        &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V     &kp B          &kp N        &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+                              &kp LEFT_GUI  &kp LALT  &lt 1 SPACE    &lt 2 ENTER  &kp RALT  &tog 4
             >;
         };
 
@@ -69,12 +70,12 @@
             >;
         };
 
-        template {
+        mouse {
             bindings = <
-&kp TAB           &trans  &trans  &trans  &trans    &trans       &trans   &trans    &trans  &trans  &trans  &kp BSPC
-&kp LEFT_CONTROL  &trans  &trans  &trans  &trans    &trans       &trans   &trans    &trans  &trans  &trans  &trans
-&kp LSHFT         &trans  &trans  &trans  &trans    &trans       &trans   &trans    &trans  &trans  &trans  &kp RSHFT
-                                  &trans  &kp LALT  &kp SPACE    &kp RET  &kp LGUI  &trans
+&trans  &trans  &trans          &mmv MOVE_UP    &trans           &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans       &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans          &mkp LCLK        &mkp RCLK    &trans  &trans  &tog 4
             >;
         };
     };
